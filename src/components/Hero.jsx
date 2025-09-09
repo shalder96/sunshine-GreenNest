@@ -1,0 +1,37 @@
+import HeroBg from "../assets/Hero.png";
+
+
+export default function Hero() {
+
+  return (
+    <section
+      className="relative bg-cover bg-center h-[80vh] flex items-center justify-center text-center"
+      style={{
+        backgroundImage: `url(${HeroBg})`,
+      }}
+    >
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-black/40"></div>
+
+      {/* Content */}
+      <div className="relative z-10 max-w-2xl px-6">
+        <h1 className="font-['Playfair_Display'] text-4xl md:text-6xl font-bold text-white">
+          Life in Love With <br /> Plants
+        </h1>
+
+        <p className="mt-4 text-base md:text-lg text-gray-200 leading-relaxed">
+          Bring nature closer to your heart. Fresh plants for every home and part.
+          Indoor greens or outdoor bloom, we deliver happiness to every room.
+        </p>
+
+        <button 
+          className="mt-6 px-6 py-3 bg-[#F0F0F0] text-green-700 font-bold rounded-full shadow-md hover:bg-[#DDD] hover:shadow-lg transition text-shadow-lg"
+        >
+          SHOP <span className="text-green-500 text-stroke text-stroke-white text-stroke-lg">
+              NOW
+            </span>
+        </button>
+      </div>
+    </section>
+  );
+}
