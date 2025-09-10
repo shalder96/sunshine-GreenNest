@@ -7,23 +7,23 @@ export default function Navbar() {
 
   return (
     <nav className="bg-[#2E7D32] text-white px-6 py-4 font-['Poppins']">
-      <div className="max-w-7xl mx-auto flex items-center justify-between">
+      <div className="flex items-center justify-between mx-auto max-w-7xl">
         
         {/* Logo */}
         <div className="flex items-center space-x-2">
-          {/* <Leaf className="h-7 w-7 text-[#66BB6A]" /> */}
           <img 
             src="/logo.png" 
             alt="GreeNest"
-            className="bg-[#2E7D32] h-7 text-[#66BB6A]"
+            loading="lazy"
+            className="bg-[#2E7D32] h-12 text-[#66BB6A]"
           />
-          <span className="font-poppins text-xl font-bold">
+          <span className="text-xl font-bold font-poppins">
             GreeNest
           </span>
         </div>
 
         {/* Desktop Nav Links */}
-        <ul className="hidden md:flex space-x-8 font-medium">
+        <ul className="hidden space-x-8 font-medium md:flex">
           <li>
             <NavLink 
               to="/" 
@@ -57,7 +57,7 @@ export default function Navbar() {
         </ul>
 
         {/* Right Icons (Desktop) */}
-        <div className="hidden md:flex items-center space-x-6">
+        <div className="items-center hidden space-x-6 md:flex">
           <button aria-label="Search"><Search className="h-5 w-5 hover:text-[#66BB6A]" /></button>
           <button aria-label="Cart"><ShoppingCart className="h-5 w-5 hover:text-[#66BB6A]" /></button>
           <button aria-label="Account"><User className="h-5 w-5 hover:text-[#66BB6A]" /></button>
@@ -66,7 +66,7 @@ export default function Navbar() {
         {/* Mobile Menu Button */}
         <div className="md:hidden">
           <button onClick={() => setIsOpen(!isOpen)} aria-label="Toggle Menu">
-            {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>
       </div>
@@ -82,7 +82,7 @@ export default function Navbar() {
             <li><a href="/contact" className="block hover:text-[#66BB6A]">CONTACT</a></li>
           </ul>
           {/* Mobile Icons */}
-          <div className="flex items-center space-x-6 mt-6">
+          <div className="flex items-center mt-6 space-x-6">
             <Search className="h-5 w-5 hover:text-[#66BB6A]" />
             <ShoppingCart className="h-5 w-5 hover:text-[#66BB6A]" />
             <User className="h-5 w-5 hover:text-[#66BB6A]" />

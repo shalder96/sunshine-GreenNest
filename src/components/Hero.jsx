@@ -1,6 +1,8 @@
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import HeroBg from "../assets/Hero.png";
 import { Typewriter } from "react-simple-typewriter";
+
 
 
 export default function Hero() {
@@ -37,11 +39,14 @@ export default function Hero() {
         <div className="mt-6">
           <Link 
             to='/shop'
-            className="px-6 py-3 bg-[#F0F0F0] text-green-700 font-bold rounded-full shadow-md hover:bg-[#DDD] hover:shadow-lg transition text-shadow-lg"
+            className="relative px-6 py-3 bg-[#F0F0F0] text-green-700 font-bold rounded-full shadow-md hover:bg-[#DDD] hover:shadow-lg transition text-shadow-lg"
           >
+          
             SHOP <span className="text-green-500 text-stroke text-stroke-white text-stroke-lg">
               NOW
               </span>
+              
+           
           </Link>
         </div>
 

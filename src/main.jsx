@@ -6,6 +6,7 @@ import App from './App.jsx'
 import Layout from './Layout.jsx'
 import Loading from './components/Loading.jsx'
 import ErrorPage from './components/ErrorPage.jsx'
+import ScrollToTop from './components/ScrollToTop.jsx'
 
 const Home = lazy(() => import('./pages/Home.jsx'))
 const Shop = lazy(() => import('./pages/Shop.jsx'))
@@ -32,7 +33,7 @@ const router = createBrowserRouter(
         <Route path='returns' element={<ReturnAndRefund />} />
       </Route>
 
-      <Route path='*' elements={<ErrorPage />} />
+      <Route path='*' element={<ErrorPage />} />
     </>
   )
 )
@@ -40,7 +41,9 @@ const router = createBrowserRouter(
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <Suspense fallback={<Loading />}>
-      <RouterProvider router={router} />
+      <RouterProvider router={router}>
+        <ScrollToTop />
+      </RouterProvider>
     </Suspense>
   </StrictMode>,
 )
