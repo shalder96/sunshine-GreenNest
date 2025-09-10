@@ -33,7 +33,7 @@ const ShopByCat = () => {
               >
                 <Link
                   to='/indoor'
-                  className='px-6 py-3 font-medium text-lg rounded-full bg-[#A5D6A7]/20 border border-[#A5D6A7]/40 text-white group-hover:bg-[#A5D6A7]/40 transition' 
+                  className='px-6 py-3 text-lg font-medium text-green-100 transition border rounded-full text-shadow-glow border-white/10 ' 
                 >
                 {cat.name}
                 </Link>

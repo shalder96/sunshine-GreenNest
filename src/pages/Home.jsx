@@ -17,7 +17,7 @@ const Home = () => {
 
   return (
     <section className='relative'>
-      <div className='absolute inset-0 bg-gradient-to-r from-[#054207] to-[#0ca811]'></div>
+      <div className='absolute inset-0 bg-gradient-to-r from-[#054207] to-[#066a52]'></div>
     
 
       {/* hero section  */}

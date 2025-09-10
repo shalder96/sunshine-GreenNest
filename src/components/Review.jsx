@@ -3,41 +3,36 @@ import Slider from "react-slick";
 import { Star } from "lucide-react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import reviews from "../data/review"
 
 const CustomerReviews = () => {
-  const reviews = [
-    {
-      name: "Aditi Sharma",
-      review:
-        "Absolutely love my Monstera plant! It arrived healthy and fresh, and it has brightened up my living room instantly. 🌱",
-      rating: 5,
-      img: "https://randomuser.me/api/portraits/women/65.jpg",
-    },
-    {
-      name: "Rohan Mehta",
-      review:
-        "Fast delivery and great packaging. The Peace Lily is thriving and looks gorgeous on my desk. Will buy again!",
-      rating: 4,
-      img: "https://randomuser.me/api/portraits/men/75.jpg",
-    },
-    {
-      name: "Sneha Kapoor",
-      review:
-        "The Lush Green Plant I ordered exceeded my expectations. Healthy leaves, and the instructions helped a lot.",
-      rating: 5,
-      img: "https://randomuser.me/api/portraits/women/32.jpg",
-    },
-  ];
+ 
 
   const settings = {
     dots: true,
     infinite: true,
     speed: 600,
-    slidesToShow: 1,
+    slidesToShow: 3,
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 4000,
     arrows: false,
+    responsive: [
+      {
+        breakpoint: 1024, // tablet and up
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 768, // laptop and up
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      }
+    ]
   };
 
   return (
@@ -52,11 +47,16 @@ const CustomerReviews = () => {
         What Our Customers Say
       </h2>
 
-      <div className="max-w-3xl mx-auto">
-        <Slider {...settings}>
+      <div className="max-w-6xl mx-auto">
+        <Slider {...settings} 
+          className="custome-slider"
+        >
           {reviews.map((r, idx) => (
-            <div key={idx} className="px-4">
-              <div className="p-6 transition duration-300 border shadow-lg rounded-2xl bg-white/10 border-white/20 backdrop-blur-lg hover:scale-105">
+            <div 
+              key={idx} 
+              className="flex justify-center px-4"
+            >
+              <div className="w-full max-w-sm p-6 transition duration-300 border shadow-lg rounded-2xl bg-white/10 border-white/20 backdrop-blur-lg hover:scale-105">
                 {/* Profile */}
                 <div className="flex items-center gap-4 mb-4">
                   <img
@@ -79,7 +79,7 @@ const CustomerReviews = () => {
                 </div>
 
                 {/* Review text */}
-                <p className="text-sm text-[#FAFAFA]/90 leading-relaxed">
+                <p className="text-sm md:text-lg text-[#FAFAFA]/90 leading-relaxed">
                   “{r.review}”
                 </p>
               </div>
