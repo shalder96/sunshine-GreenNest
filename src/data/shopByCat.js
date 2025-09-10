@@ -1,11 +1,11 @@
  const categories = [
-    { name: "Indoor Plants", 
+    { type: "Indoor Plants", 
       img: "/shopByCat/indoor.jpg" },
-    { name: "Outdoor Plants", 
+    { type: "Outdoor Plants", 
       img: "/shopByCat/outdoor.jpg" },
-    { name: "Office Desk Plants", 
+    { type: "Office Desk Plants", 
       img: "/shopByCat/officeDesk.jpg" },
-    { name: "Gifts Plants & Combo", 
+    { type: "Gifts Plants & Combo", 
       img: "/shopByCat/gifts.jpg" },
   ];
 

@@ -3,15 +3,16 @@ import { AiFillStar, AiOutlineStar } from "react-icons/ai";
 
 
 
+
 const renderStars = (rating) => {
   const stars = [];
   const rounded = Math.round(rating);
   for (let i = 1; i <= 5; i++) {
     stars.push(
       i <= rounded ? (
-        <AiFillStar key={i} className="text-yellow-400 text-xl" />
+        <AiFillStar key={i} className="text-xl text-yellow-400" />
       ) : (
-        <AiOutlineStar key={i} className="text-gray-400 text-xl" />
+        <AiOutlineStar key={i} className="text-xl text-gray-400" />
       )
     );
   }
@@ -19,69 +20,30 @@ const renderStars = (rating) => {
 };
 
 
-const ProductCard = () => {
-
-  const products = [
-  {
-    name: "Monstera deliciosa Plant",
-    price: "₹199.00",
-    rating: 4.8,
-    img: "/ourPlants/montsera.png",
-  },
-  {
-    name: "Lush Green Plant",
-    price: "₹89.00",
-    rating: 5.0,
-    img: "/ourPlants/lushGreen.png",
-  },
-  {
-    name: "Watermelon Peperomia",
-    price: "₹149.00",
-    rating: 5.0,
-    img: "/ourPlants/watermelonPep.png",
-  },
-  {
-    name: "Rubber Plant",
-    price: "₹69.00",
-    rating: 5.0,
-    img: "/ourPlants/rubber.png",
-  },
-  {
-    name: "Birds Nest Plants",
-    price: "₹195.00",
-    rating: 5.0,
-    img: "/ourPlants/birdsNest.png",
-  },
-  {
-    name: "Peace Lily Plant",
-    price: "₹99.00",
-    rating: 5.0,
-    img: "/ourPlants/peaceLily.png",
-  },
-];
+const ProductCard = ({name, price, rating, image}) => {
+  
 
   return (
-
-    <>
-      {products.map((plant, idx) => (
+      
         <div
-          key={idx}
-          className="rounded-2xl p-6 pt-24 shadow-lg border border-white/20 bg-white/10 backdrop-blur-lg hover:scale-105 transition transform duration-300 relative"
+          className="relative p-6 pt-24 transition duration-300 transform border shadow-lg rounded-2xl border-white/20 bg-white/10 backdrop-blur-lg hover:scale-105"
         >
             {/* Plant Image floating */}
-          <div className="absolute -top-12 left-1/2 transform -translate-x-1/2">
+          <div className="absolute transform -translate-x-1/2 -top-12 left-1/2">
             <img
-              src={plant.img}
-              alt={plant.name}
-              className="w-40 h-40 object-contain drop-shadow-lg"
+              src={image}
+              alt={name}
+              loading='lazy'
+              className="object-contain w-40 h-40 drop-shadow-lg"
             />
           </div>
+
             {/* Contents  */}
-          <h3 className="mt-4 text-lg font-semibold">{plant.name}</h3>
-          <p className="text-[#A5D6A7]">{plant.price}</p>
+          <h3 className="mt-4 text-lg font-semibold">{name}</h3>
+          <p className="text-[#A5D6A7]">{price}</p>
           <div className="flex items-center justify-center gap-1 mt-2">
-            {renderStars(plant.rating)}
-            <span className="text-sm text-gray-200">({plant.rating})</span>
+            {renderStars(rating)}
+            <span className="text-sm text-gray-200">({rating})</span>
           </div>
 
           <button 
@@ -90,8 +52,6 @@ const ProductCard = () => {
           </button>
 
         </div>
-      ))}
-    </>
   )
 }
 

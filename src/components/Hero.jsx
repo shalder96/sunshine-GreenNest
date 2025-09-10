@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import HeroBg from "../assets/Hero.png";
+import { Typewriter } from "react-simple-typewriter";
 
 
 export default function Hero() {
@@ -17,7 +18,15 @@ export default function Hero() {
       {/* Content */}
       <div className="relative z-10 max-w-2xl px-6">
         <h1 className="font-['Playfair_Display'] text-4xl md:text-6xl font-bold text-white">
-          Life in Love With <br /> Plants
+          <Typewriter
+            words={["Greenify Your Space", "Bring Nature Home 🏡", "Plants. Love. Life. 💚"]}
+            loop={true}
+            cursor
+            cursorStyle="|"
+            typeSpeed={70}
+            deleteSpeed={50}
+            delaySpeed={1500}
+          />
         </h1>
 
         <p className="mt-4 text-base leading-relaxed text-gray-200 md:text-lg">
