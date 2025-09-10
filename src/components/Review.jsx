@@ -41,14 +41,14 @@ const CustomerReviews = () => {
   };
 
   return (
-    <section className="relative py-20 px-6 bg-gradient-to-b from-[#1B4332] to-[#2E7D32] text-white overflow-hidden">
+    <section className="relative px-6 py-20 overflow-hidden text-white">
       {/* Bubble backdrop */}
-      <div className="absolute inset-0 -z-10 overflow-hidden">
-        <div className="absolute top-20 left-10 w-40 h-40 bg-yellow-200 rounded-full blur-3xl opacity-30"></div>
-        <div className="absolute bottom-20 right-16 w-56 h-56 bg-yellow-300 rounded-full blur-3xl opacity-30"></div>
+      <div className="absolute inset-0 overflow-hidden -z-10">
+        <div className="absolute w-40 h-40 bg-yellow-200 rounded-full top-20 left-10 blur-3xl opacity-30"></div>
+        <div className="absolute w-56 h-56 bg-yellow-300 rounded-full bottom-20 right-16 blur-3xl opacity-30"></div>
       </div>
 
-      <h2 className="text-3xl md:text-4xl font-serif text-center mb-12">
+      <h2 className="mb-12 font-serif text-3xl text-center md:text-4xl">
         What Our Customers Say
       </h2>
 
@@ -56,7 +56,7 @@ const CustomerReviews = () => {
         <Slider {...settings}>
           {reviews.map((r, idx) => (
             <div key={idx} className="px-4">
-              <div className="rounded-2xl p-6 bg-white/10 border border-white/20 backdrop-blur-lg shadow-lg hover:scale-105 transition duration-300">
+              <div className="p-6 transition duration-300 border shadow-lg rounded-2xl bg-white/10 border-white/20 backdrop-blur-lg hover:scale-105">
                 {/* Profile */}
                 <div className="flex items-center gap-4 mb-4">
                   <img

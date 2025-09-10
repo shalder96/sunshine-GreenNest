@@ -6,14 +6,14 @@ const LatestBlogsSection = () => {
   const latestBlogs = blogs.slice(0, 3); // take first 3 blogs
 
   return (
-    <section className="py-16 px-6 bg-gradient-to-b from-[#1B4332] to-[#2E7D32] text-white relative">
+    <section className="relative px-6 py-16 text-white">
       <div className="absolute inset-0 bg-white/10 backdrop-blur-2xl -z-10" />
 
-      <h2 className="text-3xl md:text-4xl font-serif text-center mb-12">
+      <h2 className="mb-12 font-serif text-3xl text-center md:text-4xl">
         Latest Blogs
       </h2>
 
-      <div className="grid gap-8 md:grid-cols-3 max-w-6xl mx-auto">
+      <div className="grid max-w-6xl gap-8 mx-auto md:grid-cols-3">
         {latestBlogs.map((blog) => (
           <div
             key={blog.id}
@@ -22,13 +22,14 @@ const LatestBlogsSection = () => {
             <img
               src={blog.img}
               alt={blog.title}
-              className="h-48 w-full object-cover"
+              className="object-cover w-full h-48"
+              loading="lazy"
             />
-            <div className="p-6 flex-1 flex flex-col">
+            <div className="flex flex-col flex-1 p-6">
               <span className="text-sm text-gray-200">
                 {blog.date} • {blog.author}
               </span>
-              <h3 className="font-semibold text-lg mt-2 mb-2">{blog.title}</h3>
+              <h3 className="mt-2 mb-2 text-lg font-semibold">{blog.title}</h3>
               <p className="text-sm text-[#FAFAFA]/90 flex-1">{blog.desc}</p>
               <Link
                 to={blog.link}
@@ -41,7 +42,7 @@ const LatestBlogsSection = () => {
         ))}
       </div>
 
-      <div className="text-center mt-12">
+      <div className="mt-12 text-center">
         <Link
           to="/blogs"
           className="px-6 py-3 rounded-full bg-[#A5D6A7]/20 border border-[#A5D6A7]/40 text-[#A5D6A7] hover:bg-[#A5D6A7]/30 transition"

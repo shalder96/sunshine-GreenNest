@@ -10,12 +10,12 @@ const BlogPage = () => {
       <div className="absolute inset-0 bg-white/5 backdrop-blur-2xl -z-10" />
 
       {/* Page Header */}
-      <h1 className="text-4xl md:text-5xl font-serif text-center mb-12">
+      <h1 className="mb-12 font-serif text-4xl text-center md:text-5xl">
         Our Blog
       </h1>
 
       {/* Blog Grid */}
-      <div className="grid gap-10 md:grid-cols-3 max-w-6xl mx-auto">
+      <div className="grid max-w-6xl gap-10 mx-auto md:grid-cols-3">
         {blogs.map((blog, idx) => (
           <div
             key={idx}
@@ -24,14 +24,14 @@ const BlogPage = () => {
             <img
               src={blog.img}
               alt={blog.title}
-              className="h-56 w-full object-cover"
+              className="object-cover w-full h-56"
               loading="lazy"
             />
-            <div className="p-6 flex flex-col flex-1">
+            <div className="flex flex-col flex-1 p-6">
               <span className="text-sm text-gray-200">
                 {blog.date} • {blog.author}
               </span>
-              <h3 className="font-semibold text-xl mt-2 mb-2">{blog.title}</h3>
+              <h3 className="mt-2 mb-2 text-xl font-semibold">{blog.title}</h3>
               <p className="text-sm text-[#FAFAFA]/90 flex-1">{blog.desc}</p>
               <a
                 href={blog.link}

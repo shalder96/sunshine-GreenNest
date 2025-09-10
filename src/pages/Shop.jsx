@@ -24,7 +24,7 @@ const AllPlants = () => {
 
 
   return (
-    <section className="py-0 px-0 bg-[#1B4332] min-h-screen">
+    <section className="py-0 px-0 bg-gradient-to-br from-[#054207] to-[#0ca811] min-h-screen">
       <div className="w-full mx-auto">
 
         {/* 🔹 Ribbon (like Amazon) */}

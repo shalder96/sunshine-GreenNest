@@ -31,24 +31,24 @@ const FeaturesSection = () => {
   ];
 
   return (
-    <section className="relative py-8 px-6 bg-[#1B4332]">
+    <section className="relative px-6 py-8">
   {/* Glassmorphic overlay behind content */}
-      <div className="absolute inset-0 bg-white/10 backdrop-blur-2xl z-10" />
+      {/* <div className="absolute inset-0 z-10 bg-white/10 backdrop-blur-2xl" /> */}
 
-      <h2 className="text-2xl md:text-3xl font-serif text-center mb-12 text-white relative z-10">
+      <h2 className="relative z-10 mb-12 font-serif text-3xl text-center text-white md:text-3xl">
         Why Choose Us
       </h2>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-8 max-w-6xl mx-auto relative z-10">
+      <div className="relative z-10 grid max-w-6xl grid-cols-1 gap-8 mx-auto sm:grid-cols-2 md:grid-cols-5">
         {features.map((f, idx) => (
         <div
           key={idx}
-          className="flex flex-col items-center text-center p-6 hover:scale-105 transition-transform duration-300"
+          className="flex flex-col items-center p-6 text-center transition-transform duration-300 hover:scale-105"
         >
             <div className="w-24 h-24 flex items-center justify-center rounded-full bg-[#FAFAFA] mb-4">
               {f.icon}
             </div>
-            <h3 className="font-semibold text-lg mb-2 text-white">{f.title}</h3>
+            <h3 className="mb-2 text-lg font-semibold text-white">{f.title}</h3>
             <p className="text-sm text-white/90">{f.description}</p>
           </div>
         ))}

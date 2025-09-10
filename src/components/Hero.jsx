@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import HeroBg from "../assets/Hero.png";
 
 
@@ -19,18 +20,22 @@ export default function Hero() {
           Life in Love With <br /> Plants
         </h1>
 
-        <p className="mt-4 text-base md:text-lg text-gray-200 leading-relaxed">
+        <p className="mt-4 text-base leading-relaxed text-gray-200 md:text-lg">
           Bring nature closer to your heart. Fresh plants for every home and part.
           Indoor greens or outdoor bloom, we deliver happiness to every room.
         </p>
 
-        <button 
-          className="mt-6 px-6 py-3 bg-[#F0F0F0] text-green-700 font-bold rounded-full shadow-md hover:bg-[#DDD] hover:shadow-lg transition text-shadow-lg"
-        >
-          SHOP <span className="text-green-500 text-stroke text-stroke-white text-stroke-lg">
+        <div className="mt-6">
+          <Link 
+            to='/shop'
+            className="px-6 py-3 bg-[#F0F0F0] text-green-700 font-bold rounded-full shadow-md hover:bg-[#DDD] hover:shadow-lg transition text-shadow-lg"
+          >
+            SHOP <span className="text-green-500 text-stroke text-stroke-white text-stroke-lg">
               NOW
-            </span>
-        </button>
+              </span>
+          </Link>
+        </div>
+
       </div>
     </section>
   );
