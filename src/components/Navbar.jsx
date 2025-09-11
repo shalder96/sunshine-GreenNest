@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Search, ShoppingCart, User, Leaf, Menu, X } from "lucide-react";
-import {NavLink} from 'react-router-dom'
+import {NavLink, Link} from 'react-router-dom'
+import AccountDropdown from "./AccountDropdown";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -58,9 +59,15 @@ export default function Navbar() {
 
         {/* Right Icons (Desktop) */}
         <div className="items-center hidden space-x-6 md:flex">
-          <button aria-label="Search"><Search className="h-5 w-5 hover:text-[#66BB6A]" /></button>
-          <button aria-label="Cart"><ShoppingCart className="h-5 w-5 hover:text-[#66BB6A]" /></button>
-          <button aria-label="Account"><User className="h-5 w-5 hover:text-[#66BB6A]" /></button>
+
+          <button aria-label="Search">
+            <Search className="h-5 w-5 hover:text-[#66BB6A]" />
+          </button>
+
+          <button aria-label="Cart">
+            <ShoppingCart className="h-5 w-5 hover:text-[#66BB6A]" />
+          </button>
+          <AccountDropdown />
         </div>
 
         {/* Mobile Menu Button */}
