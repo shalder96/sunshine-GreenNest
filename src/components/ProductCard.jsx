@@ -1,5 +1,6 @@
 import React from 'react'
 import { AiFillStar, AiOutlineStar } from "react-icons/ai";
+import {Link} from 'react-router-dom'
 
 
 
@@ -29,12 +30,12 @@ const ProductCard = ({name, price, rating, image}) => {
           className="relative p-6 pt-24 transition duration-300 transform border shadow-lg rounded-2xl border-white/20 bg-white/10 backdrop-blur-lg hover:scale-105"
         >
             {/* Plant Image floating */}
-          <div className="absolute transform -translate-x-1/2 -top-12 left-1/2">
+          <div className="absolute transform -translate-x-1/2 -top-1/2 left-1/2">
             <img
               src={image}
               alt={name}
               loading='lazy'
-              className="object-contain w-40 h-40 drop-shadow-lg"
+              className="object-contain h-60 w-60 drop-shadow-lg"
             />
           </div>
 
@@ -46,10 +47,20 @@ const ProductCard = ({name, price, rating, image}) => {
             <span className="text-sm text-gray-200">({rating})</span>
           </div>
 
-          <button 
-            className="mt-4 px-6 py-2 bg-[#A5D6A7] text-[#1B4332] font-semibold rounded-full shadow hover:bg-[#F5F1E6] hover:text-[#2E7D32] transition">
-            SHOP NOW
-          </button>
+          <div className='flex flex-row items-center justify-between gap-4 mt-4'>
+            <Link
+              to=''
+              className=" px-4 py-2 bg-white/20 border border-white/30 text-white text-sm rounded-full shadow hover:bg-[#F5F1E6] hover:text-[#2E7D32] transition duration-300"
+            >
+              BUY NOW
+          </Link>
+          <Link
+            to=''
+            className='px-4 py-2 bg-white/20 border border-white/30 text-white text-sm rounded-full shadow hover:bg-[#F5F1E6] hover:text-[#2E7D32] transition duration-300'
+          >
+            ADD CART
+          </Link>
+          </div>
 
         </div>
   )

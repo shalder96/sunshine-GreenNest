@@ -18,10 +18,10 @@ export default function Hero() {
       <div className="absolute inset-0 bg-black/40"></div>
 
       {/* Content */}
-      <div className="relative z-10 max-w-2xl px-6">
-        <h1 className="font-['Playfair_Display'] text-4xl md:text-6xl font-bold text-white">
+      <div className="relative z-10 px-6 md:max-w-3xl">
+        <h1 className="font-['Playfair_Display'] text-3xl md:text-6xl font-bold text-white">
           <Typewriter
-            words={["Greenify Your Space", "Bring Nature Home 🏡", "Plants. Love. Life. 💚"]}
+            words={["Greenify Your Space", "Bring Nature Home", "Plants. Love. Life."]}
             loop={true}
             cursor
             cursorStyle="|"
@@ -31,15 +31,15 @@ export default function Hero() {
           />
         </h1>
 
-        <p className="mt-4 text-base leading-relaxed text-gray-200 md:text-lg">
+        <p className="mt-4 text-lg leading-relaxed text-gray-200 md:text-xl">
           Bring nature closer to your heart. Fresh plants for every home and part.
           Indoor greens or outdoor bloom, we deliver happiness to every room.
         </p>
 
-        <div className="mt-6">
+        <div className="mt-8">
           <Link 
             to='/shop'
-            className="relative px-6 py-3 bg-[#F0F0F0] text-green-700 font-bold rounded-full shadow-md hover:bg-[#DDD] hover:shadow-lg transition text-shadow-lg"
+            className="relative px-6 py-3 bg-[#F0F0F0] text-green-700 font-bold rounded-full shadow-md hover:bg-[#b9b9b9] hover:shadow-lg transition duration-300 text-shadow-lg"
           >
           
             SHOP <span className="text-green-500 text-stroke text-stroke-white text-stroke-lg">

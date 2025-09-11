@@ -24,7 +24,7 @@ const AllPlants = () => {
 
 
   return (
-    <section className="py-0 px-0 bg-gradient-to-br from-[#054207] to-[#0ca811] min-h-screen">
+    <section className="py-0 px-0 bg-gradient-to-r from-[#064e3b] via-[#065f46] to-[#15803d] min-h-screen">
       <div className="w-full mx-auto">
 
         {/* 🔹 Ribbon (like Amazon) */}
@@ -74,7 +74,7 @@ const AllPlants = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 gap-8 px-6 py-10 gap-y-16 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-8 px-6 py-10 mt-20 gap-y-28 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
           {plantsData.map((plant, idx) => (
             <ProductCard 
               key={idx}

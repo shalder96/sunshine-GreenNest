@@ -15,7 +15,7 @@ const ShopByCat = () => {
         </div>
 
         <h2 className="mb-8 font-serif text-3xl">Shop By Category</h2>
-        <div className="grid grid-cols-1 gap-8 mx-auto md:grid-cols-3 lg:grid-cols-4 group-hover:scale-105 group-hover:border-[#81C784] z-10">
+        <div className="grid grid-cols-1 gap-8 space-y-8 mx-auto md:grid-cols-3 lg:grid-cols-4 group-hover:scale-105 group-hover:border-[#81C784] z-10">
           {categories.map((cat, idx) => (
             <div key={idx} className="flex flex-col items-center group">
               <div className="w-40 h-40 md:w-60 md:h-60 rounded-full overflow-hidden border-4 border-[#A5D6A7] shadow-lg">
@@ -29,7 +29,7 @@ const ShopByCat = () => {
 
               {/* button  */}
               <div 
-                className='mt-12 text-center'
+                className='mt-6 text-center md:mt-12'
               >
                 <Link
                   to={`/shop/${cat.slug}`}
