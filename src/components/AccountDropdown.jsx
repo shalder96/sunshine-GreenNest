@@ -1,21 +1,32 @@
 import React, { useState } from "react";
 import { User, LogOut, Heart, Package, UserCircle2, LogIn } from "lucide-react";
-import userAuth from './Authentication/userAuth'
+import UserAuthForm from "./Authentication/userAuthForm";
+import Button from "@mui/material/Button";
 
 const AccountDropdown = () => {
   const [open, setOpen] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false); // fake state for demo
-  const [authOpen, setAuthOpen] = useState(false);
+  const [formOpen, setFormOpen] = useState(false);
+  
+
+  const handleToggleOpen = () => {
+    setOpen((prev) => (!prev))
+  };
+
+  const handleClose = () => {
+    setFormOpen(false);
+  };
 
   return (
     <div className="relative">
       {/* Account Icon */}
       <button
-        onClick={() => setOpen(!open)}
+        onClick={() => handleToggleOpen(!open)}
         className="p-2 rounded-full hover:bg-[#A5D6A7]/30 transition"
       >
         <User className="w-6 h-6 text-white" />
       </button>
+    
 
       {/* Dropdown */}
       {open && (
@@ -23,11 +34,26 @@ const AccountDropdown = () => {
           {!isLoggedIn ? (
             <>
               {/* If NOT logged in */}
-              <button 
-                onClick={() => setAuthOpen(true)}
-                className="w-full flex items-center gap-2 px-4 py-3 text-[#FAFAFA] hover:bg-[#A5D6A7]/20 transition">
+              <Button 
+              fullWidth
+                variant="outlined"
+                onClick={() => setFormOpen(true)}
+                sx={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 2, // theme.spacing(2)
+                  px: 2,
+                  py: 1,
+                  transition: "all 0.3s ease",
+                  backgroundColor: "none",
+                  color: "white",
+                  borderRadius: "12px",
+                  "&:hover": {backgroundColor: "rgba(165, 214, 167, 0.2)", color: "black"}
+                }}
+              >
                 <LogIn size={18} /> Login / Signup
-              </button>
+              </Button>
+              <UserAuthForm open={formOpen} onClose={handleClose} />
             </>
           ) : (
             <>
