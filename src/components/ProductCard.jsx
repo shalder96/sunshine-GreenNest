@@ -1,6 +1,7 @@
 import React from 'react'
 import { AiFillStar, AiOutlineStar } from "react-icons/ai";
 import {Link} from 'react-router-dom'
+import {ShoppingCart} from 'lucide-react'
 
 
 
@@ -21,7 +22,7 @@ const renderStars = (rating) => {
 };
 
 
-const ProductCard = ({name, price, rating, image}) => {
+const ProductCard = ({name,sName, price, rating, image, description}) => {
   
 
   return (
@@ -30,36 +31,39 @@ const ProductCard = ({name, price, rating, image}) => {
           className="relative p-6 pt-24 transition duration-300 transform border shadow-lg rounded-2xl border-white/20 bg-white/10 backdrop-blur-lg hover:scale-105"
         >
             {/* Plant Image floating */}
-          <div className="absolute transform -translate-x-1/2 -top-1/2 left-1/2">
+          <div className="relative flex items-center justify-center">
             <img
               src={image}
               alt={name}
               loading='lazy'
-              className="object-contain h-60 w-60 drop-shadow-lg"
+              className="absolute object-contain bottom-1/2 w-44 h-44 md:w-56 md:h-56 drop-shadow-lg"
             />
           </div>
 
             {/* Contents  */}
-          <h3 className="mt-4 text-lg font-semibold">{name}</h3>
-          <p className="text-[#A5D6A7]">{price}</p>
+          <h3 className="mt-4 text-xl font-semibold text-center text-white">{name}</h3>
+          <p className='mt-2 text-lg italic font-medium text-center text-gray-200'>{sName}</p>
+          <p className="text-[#A5D6A7] text-center mt-2">₹{price}</p>
           <div className="flex items-center justify-center gap-1 mt-2">
             {renderStars(rating)}
-            <span className="text-sm text-gray-200">({rating})</span>
+            <span className="text-sm text-center text-gray-200">({rating})</span>
           </div>
+          <p className='mt-2 text-center text-gray-200 text-medium'>{description}</p>
+
 
           <div className='flex flex-row items-center justify-between gap-4 mt-4'>
-            <Link
-              to=''
+            <button
+              onClick={() => {}}
               className=" px-4 py-2 bg-white/20 border border-white/30 text-white text-sm rounded-full shadow hover:bg-[#F5F1E6] hover:text-[#2E7D32] transition duration-300"
             >
               BUY NOW
-          </Link>
-          <Link
-            to=''
-            className='px-4 py-2 bg-white/20 border border-white/30 text-white text-sm rounded-full shadow hover:bg-[#F5F1E6] hover:text-[#2E7D32] transition duration-300'
+          </button>
+          <button
+            onClick={() => {}}  
+            className='p-2  border border-white/30 text-white text-sm rounded-full shadow  hover:text-[#2E7D32] transition duration-300'
           >
-            ADD CART
-          </Link>
+            <ShoppingCart />
+          </button>
           </div>
 
         </div>

@@ -17,7 +17,7 @@ const OurPlantSection = () => {
         </div>
 
         <h2 className="mb-16 font-serif text-3xl">Our Plants</h2>
-        <div className="grid grid-cols-1 gap-10 px-8 mx-auto gap-y-24 sm:grid-cols-2 md:grid-cols-4">
+        <div className="grid grid-cols-1 gap-10 px-8 mx-auto gap-y-36 sm:grid-cols-2 md:grid-cols-4">
           {plants.slice(0,visible).map((plant, idx) => (
 
             <ProductCard 

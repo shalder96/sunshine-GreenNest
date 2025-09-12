@@ -74,14 +74,16 @@ const AllPlants = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 gap-8 px-6 py-10 mt-20 gap-y-28 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-8 px-6 py-10 mt-20 gap-y-36 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
           {plantsData.map((plant, idx) => (
             <ProductCard 
               key={idx}
               name={plant.name}
+              sName={plant.sName}
               price={plant.price}
               rating={plant.rating}
               image={plant.image}
+              description={plant.description}
             />
           ))}
         </div>

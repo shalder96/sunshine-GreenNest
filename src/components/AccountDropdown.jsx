@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { User, LogOut, Heart, Package, UserCircle2, LogIn } from "lucide-react";
+import userAuth from './Authentication/userAuth'
 
 const AccountDropdown = () => {
   const [open, setOpen] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false); // fake state for demo
+  const [authOpen, setAuthOpen] = useState(false);
 
   return (
     <div className="relative">
@@ -21,7 +23,9 @@ const AccountDropdown = () => {
           {!isLoggedIn ? (
             <>
               {/* If NOT logged in */}
-              <button className="w-full flex items-center gap-2 px-4 py-3 text-[#FAFAFA] hover:bg-[#A5D6A7]/20 transition">
+              <button 
+                onClick={() => setAuthOpen(true)}
+                className="w-full flex items-center gap-2 px-4 py-3 text-[#FAFAFA] hover:bg-[#A5D6A7]/20 transition">
                 <LogIn size={18} /> Login / Signup
               </button>
             </>
