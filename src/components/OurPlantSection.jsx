@@ -16,7 +16,7 @@ const OurPlantSection = () => {
           <div className="absolute top-[58%] right-10 w-32 h-32 bg-yellow-50 rounded-full blur-3xl opacity-50 animate-float delay-1000"></div>
         </div>
 
-        <h2 className="mb-16 font-serif text-3xl">Our Plants</h2>
+        <h2 className="mb-32 font-serif text-3xl">Our Plants</h2>
         <div className="grid grid-cols-1 gap-10 px-8 mx-auto gap-y-36 sm:grid-cols-2 md:grid-cols-4">
           {plants.slice(0,visible).map((plant, idx) => (
 

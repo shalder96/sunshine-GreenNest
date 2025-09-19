@@ -15,10 +15,12 @@ const ShopByCat = () => {
         </div>
 
         <h2 className="mb-8 font-serif text-3xl">Shop By Category</h2>
-        <div className="grid grid-cols-1 gap-8 space-y-8 mx-auto md:grid-cols-3 lg:grid-cols-4 group-hover:scale-105 group-hover:border-[#81C784] z-10">
+        <div className="flex flex-wrap items-center justify-center gap-8 p-6 ">
           {categories.map((cat, idx) => (
-            <div key={idx} className="flex flex-col items-center group">
-              <div className="w-40 h-40 md:w-60 md:h-60 rounded-full overflow-hidden border-4 border-[#A5D6A7] shadow-lg">
+            <div 
+              key={idx} 
+              className="flex flex-col items-center gap-4 p-6 ">
+              <div className=" w-32 h-32 md:w-60 md:h-60 rounded-full overflow-hidden border-4 border-[#A5D6A7] shadow-md hover:shadow-lg">
                 <img
                   src={cat.img}
                   alt={cat.type}
@@ -29,11 +31,11 @@ const ShopByCat = () => {
 
               {/* button  */}
               <div 
-                className='mt-6 text-center md:mt-12'
+                className=''
               >
                 <Link
                   to={`/shop/${cat.slug}`}
-                  className='px-6 py-3 text-lg font-medium text-green-100 transition md:text-xl text-shadow-glow' 
+                  className='px-6 py-2 text-lg font-medium text-green-100 transition md:text-xl text-shadow-glow' 
                 >
                 {cat.type}
                 </Link>
