@@ -9,53 +9,31 @@ import DialogTitle from '@mui/material/DialogTitle';
 import Tab from '@mui/material/Tab';
 import Tabs from '@mui/material/Tabs'
 import Box from '@mui/material/Box';
-import useAuth from '../../contexts/AuthProvider';
+import { useAuth } from '../../contexts/AuthProvider';
 
 const UserAuthForm = ({open, onClose}) => {
-  const {user, login, signup} = useAuth()
+  const {user, login, signup, msg, setMsg} = useAuth()
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [confirmPassword, setConfirmPassword] = useState("")
-  const [msg, setMsg] = useState("")
   const [tab, setTab] = useState("login");
 
   const handleTabChange = (event, newValue) => {
     setTab(newValue);
   };
 
-  const handleLogin = (e) => {
-    e.preventDefault();
-    const success = signup(email, password);
-    try {
-      if(success) {
-         setMsg("Login successful ✅.");
-      } else {
-        setMsg("❌ Invalid username/email or password!");
-      }
-    } catch (error) {
-      setMsg("Login failed ❌: " + error.message);
-    }
-  }
-  const handleSignup = (e) => {
-    e.preventDefault();
-    try {
-      signup(email, password);
-    } catch (error) {
-      setMsg("Signup failed ❌;" + error.message);
-    }
-  }
 
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (tab === "login"){
-      handleLogin()
+      login(email, password);
     } else {
-      handleSignup()
+      signup(email, password, confirmPassword);
     }
     console.log(email);
-    console.log("Form submitted:", tab, formJson);
-    handleClose();
+    console.log("Form submitted:", tab, { email, password, confirmPassword });
+    onClose()
   };
 
   return (
@@ -119,12 +97,12 @@ const UserAuthForm = ({open, onClose}) => {
               />
             )}
           </form>
-          {msg && (<p className='py-4 text-sm text-black'>{msg}</p>)}
+          {msg && <p className='py-4 text-sm text-black'>{msg}</p>}
         </DialogContent>
 
         <DialogActions>
           <Button onClick={onClose}>Cancel</Button>
-          <Button type='submit' form="subscription-form">
+          <Button type='submit' form="auth-form">
             {tab === "login" ? "Login" : "Sign Up"}
           </Button>
         </DialogActions>

@@ -4,7 +4,7 @@ import React,{useState, createContext, useContext} from 'react'
 export const AuthContext = createContext()
 
 //contetx provider wrapper
-const AuthProvider = ({children}) => {
+const AuthProvider = ({children} = {}) => {
   const [user, setUser] = useState(() => {
     const stored = localStorage.getItem("user");
     return stored ? JSON.parse(stored) : null;
@@ -27,9 +27,7 @@ const AuthProvider = ({children}) => {
 
     //check if the username or email already exist
     const existingUser = storedUsers.find(
-      (u) => {
-        u.email === email && u.password === password;
-      }
+      (u) => u.email === email
     )
 
     if(existingUser) {
@@ -37,7 +35,13 @@ const AuthProvider = ({children}) => {
       return false;
     }
 
-    const newUser = {email, password, confirmPassword};
+    // confirm password validation
+    if (password !== confirmPassword) {
+      setMsg("❌ Passwords do not match!");
+      return false;
+    }
+
+    const newUser = {email, password};
     storedUsers.push(newUser);
 
     //save all users and active session
@@ -62,7 +66,7 @@ const AuthProvider = ({children}) => {
     }
     //allow login with email
     const existingUser = storedUsers.find(
-      (u) => u.email && u.password
+      (u) => u.email === email && u.password === password
     )
 
     if (existingUser) {
@@ -84,7 +88,7 @@ const AuthProvider = ({children}) => {
 
 
   return (
-    <AuthContext.Provider value={{user, login, signup, logout}}>
+    <AuthContext.Provider value={{msg, setMsg, user, login, signup, logout}}>
       {children}
     </AuthContext.Provider>
   )

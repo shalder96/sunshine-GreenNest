@@ -6,6 +6,7 @@ import Layout from './Layout.jsx'
 import Loading from './components/Loading.jsx'
 import ErrorPage from './components/ErrorPage.jsx'
 import ScrollToTop from './components/ScrollToTop.jsx'
+import AuthProvider from './contexts/AuthProvider'
 
 const Home = lazy(() => import('./pages/Home.jsx'))
 const Shop = lazy(() => import('./pages/Shop.jsx'))
@@ -40,9 +41,11 @@ const router = createBrowserRouter(
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <Suspense fallback={<Loading />}>
-      <RouterProvider router={router}>
-        <ScrollToTop />
-      </RouterProvider>
+      <AuthProvider>
+        <RouterProvider router={router}>
+          <ScrollToTop />
+        </RouterProvider>
+      </ AuthProvider>
     </Suspense>
   </StrictMode>,
 )
