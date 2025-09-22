@@ -9,20 +9,50 @@ import DialogTitle from '@mui/material/DialogTitle';
 import Tab from '@mui/material/Tab';
 import Tabs from '@mui/material/Tabs'
 import Box from '@mui/material/Box';
+import useAuth from '../../contexts/AuthProvider';
 
 const UserAuthForm = ({open, onClose}) => {
-
+  const {user, login, signup} = useAuth()
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
+  const [confirmPassword, setConfirmPassword] = useState("")
+  const [msg, setMsg] = useState("")
   const [tab, setTab] = useState("login");
 
   const handleTabChange = (event, newValue) => {
     setTab(newValue);
   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const formData = new FormData(event.currentTarget);
-    const formJson = Object.fromEntries(formData.entries());
-    const email = formJson.email;
+  const handleLogin = (e) => {
+    e.preventDefault();
+    const success = signup(email, password);
+    try {
+      if(success) {
+         setMsg("Login successful ✅.");
+      } else {
+        setMsg("❌ Invalid username/email or password!");
+      }
+    } catch (error) {
+      setMsg("Login failed ❌: " + error.message);
+    }
+  }
+  const handleSignup = (e) => {
+    e.preventDefault();
+    try {
+      signup(email, password);
+    } catch (error) {
+      setMsg("Signup failed ❌;" + error.message);
+    }
+  }
+
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (tab === "login"){
+      handleLogin()
+    } else {
+      handleSignup()
+    }
     console.log(email);
     console.log("Form submitted:", tab, formJson);
     handleClose();
@@ -59,6 +89,8 @@ const UserAuthForm = ({open, onClose}) => {
               name="email"
               label="Email Address"
               type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               fullWidth
               required
           />
@@ -68,6 +100,8 @@ const UserAuthForm = ({open, onClose}) => {
               name="password"
               label="Password"
               type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
               fullWidth
               required
             />
@@ -78,16 +112,19 @@ const UserAuthForm = ({open, onClose}) => {
                 name="confirmPassword"
                 label="Confirm Password"
                 type="password"
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
                 fullWidth
                 required
               />
             )}
           </form>
+          {msg && (<p className='py-4 text-sm text-black'>{msg}</p>)}
         </DialogContent>
 
         <DialogActions>
           <Button onClick={onClose}>Cancel</Button>
-          <Button type="submit" form="subscription-form">
+          <Button type='submit' form="subscription-form">
             {tab === "login" ? "Login" : "Sign Up"}
           </Button>
         </DialogActions>

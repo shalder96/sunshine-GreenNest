@@ -82,17 +82,17 @@ export default function Navbar() {
       {isOpen && (
         <div className="md:hidden mt-4 bg-[#2E7D32] border-t border-green-800 py-4 px-6 rounded-lg shadow-lg">
           <ul className="space-y-4 text-lg font-medium">
-            <li><a href="/" className="block hover:text-[#66BB6A]">HOME</a></li>
-            <li><a href="/about" className="block hover:text-[#66BB6A]">ABOUT US</a></li>
-            <li><a href="/shop" className="block hover:text-[#66BB6A]">SHOP</a></li>
-            <li><a href="/blogs" className="block hover:text-[#66BB6A]">BLOGS</a></li>
-            <li><a href="/contact" className="block hover:text-[#66BB6A]">CONTACT</a></li>
+            <li><NavLink to="/" className="block hover:text-[#66BB6A]">HOME</NavLink></li>
+            <li><NavLink to="/about" className="block hover:text-[#66BB6A]">ABOUT US</NavLink></li>
+            <li><NavLink to="/shop" className="block hover:text-[#66BB6A]">SHOP</NavLink></li>
+            <li><NavLink to="/blogs" className="block hover:text-[#66BB6A]">BLOGS</NavLink></li>
+            <li><NavLink to="/contact" className="block hover:text-[#66BB6A]">CONTACT</NavLink></li>
           </ul>
           {/* Mobile Icons */}
           <div className="flex items-center mt-6 space-x-6">
             <Search className="h-5 w-5 hover:text-[#66BB6A]" />
             <ShoppingCart className="h-5 w-5 hover:text-[#66BB6A]" />
-            <User className="h-5 w-5 hover:text-[#66BB6A]" />
+            <AccountDropdown />
           </div>
         </div>
       )}

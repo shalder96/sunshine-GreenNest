@@ -1,3 +1,25 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* index.css (or component css) */
+.custom-slider .slick-list {
+  margin: 0 -8px; /* align slides with container padding */
+}
+.custom-slider .slick-track {
+  display: flex !important;
+  align-items: stretch;
+}
+.custom-slider .slick-slide {
+  display: flex !important;
+  justify-content: center;
+  align-items: stretch;
+  padding: 0 8px;
+  box-sizing: border-box;
+}
+.custom-slider .slick-slide > div {
+  /* Ensure the inner slide wrapper stretches to fill slide */
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}

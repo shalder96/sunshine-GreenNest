@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState, useRef} from "react";
 import Slider from "react-slick";
 import { Star } from "lucide-react";
 import "slick-carousel/slick/slick.css";
@@ -6,33 +6,40 @@ import "slick-carousel/slick/slick-theme.css";
 import reviews from "../data/review"
 
 const CustomerReviews = () => {
- 
+ const sliderRef = useRef(null);
 
   const settings = {
     dots: true,
     infinite: true,
     speed: 600,
-    slidesToShow: 3,
+    slidesToShow: 4,
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 4000,
     arrows: false,
+    adaptiveHeight: true,
     responsive: [
-      {
-        breakpoint: 1024, // tablet and up
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1,
-        },
-      },
-      {
-        breakpoint: 768, // laptop and up
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        },
-      }
-    ]
+    {
+      breakpoint: 1440, // large monitors
+      settings: { slidesToShow: 4 },
+    },
+    {
+      breakpoint: 1280, // laptops
+      settings: { slidesToShow: 3 },
+    },
+    {
+      breakpoint: 1024, // tablets landscape
+      settings: { slidesToShow: 2 },
+    },
+    {
+      breakpoint: 768, // tablets portrait
+      settings: { slidesToShow: 1 },
+    },
+    {
+      breakpoint: 640, // phones
+      settings: { slidesToShow: 1 },
+    },
+  ],
   };
 
   return (
@@ -47,16 +54,17 @@ const CustomerReviews = () => {
         What Our Customers Say
       </h2>
 
-      <div className="max-w-6xl mx-auto">
+      <div className="w-full max-w-[90%] xl:max-w-7xl 2xl:max-w-[1600px] mx-auto">
         <Slider {...settings} 
           className="custome-slider"
+          ref={sliderRef}
         >
           {reviews.map((r, idx) => (
             <div 
               key={idx} 
-              className="flex justify-center px-4"
+              className="flex justify-center px-2 sm:px-4"
             >
-              <div className="w-full max-w-sm p-6 transition duration-300 border shadow-lg rounded-2xl bg-white/10 border-white/20 backdrop-blur-lg hover:scale-105">
+              <div className="w-full max-w-sm p-4 transition duration-300 border shadow-lg sm:p-6 rounded-2xl bg-white/10 border-white/20 backdrop-blur-lg hover:scale-105">
                 {/* Profile */}
                 <div className="flex items-center gap-4 mb-4">
                   <img
@@ -70,7 +78,7 @@ const CustomerReviews = () => {
                       {Array.from({ length: r.rating }).map((_, i) => (
                         <Star
                           key={i}
-                          size={18}
+                          size={16}
                           className="text-yellow-400 fill-yellow-400"
                         />
                       ))}
@@ -79,7 +87,7 @@ const CustomerReviews = () => {
                 </div>
 
                 {/* Review text */}
-                <p className="text-sm md:text-lg text-[#FAFAFA]/90 leading-relaxed">
+                <p className="text-sm sm:text-base md:text-lg text-[#FAFAFA]/90 leading-relaxed">
                   “{r.review}”
                 </p>
               </div>
